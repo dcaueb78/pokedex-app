@@ -5,9 +5,7 @@ import * as React from 'react';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import PokemonScreen from '../screens/Pokemon';
-import MovesScreen from '../screens/Moves';
-import ItemsScreen from '../screens/Items';
+import { ItemsScreen, PokemonScreen, MovesScreen } from '../screens/index';
 import { BottomTabParamList, PokemonTabParamList, MovesTabParamList, ItemsTabParamList } from '../types';
 import { PokemonIcon } from '../components/Icons/PokemonIcon';
 
