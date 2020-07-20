@@ -1,4 +1,4 @@
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
@@ -21,24 +21,24 @@ export default function BottomTabNavigator() {
       initialRouteName="Pokémon"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
-        name="Pokémon"
-        component={PokemonNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <PokemonIcon color={color} />,
-        }}
-      />
-      <BottomTab.Screen
         name="Moves"
         component={MovesNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <Entypo name="grid" size={24} color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Pokémon"
+        component={PokemonNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="pokeball" color={color} size={60} style={{position: "absolute", top: "-75%", backgroundColor: '#ffffff'}} />,
         }}
       />
       <BottomTab.Screen
         name="Items"
         component={ItemsNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="bag-personal" color={color} size={24} />,
         }}
       />
     </BottomTab.Navigator>
