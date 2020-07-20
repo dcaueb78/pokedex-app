@@ -5,9 +5,10 @@ import * as React from 'react';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import PokemonScreen from '../screens/Pokemon';
+import MovesScreen from '../screens/Moves';
+import ItemsScreen from '../screens/Items';
+import { BottomTabParamList, PokemonTabParamList, MovesTabParamList, ItemsTabParamList } from '../types';
 import { PokemonIcon } from '../components/Icons/PokemonIcon';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -21,14 +22,21 @@ export default function BottomTabNavigator() {
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
         name="Pokémon"
-        component={TabOneNavigator}
+        component={PokemonNavigator}
         options={{
           tabBarIcon: ({ color }) => <PokemonIcon color={color} />,
         }}
       />
       <BottomTab.Screen
         name="Moves"
-        component={TabTwoNavigator}
+        component={MovesNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Items"
+        component={ItemsNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
@@ -45,30 +53,44 @@ function TabBarIcon(props: { name: string; color: string }) {
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>();
+const PokemonTabStack = createStackNavigator<PokemonTabParamList>();
 
-function TabOneNavigator() {
+function PokemonNavigator() {
   return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
+    <PokemonTabStack.Navigator>
+      <PokemonTabStack.Screen
+        name="PokemonScreen"
+        component={PokemonScreen}
         options={{ headerTitle: 'Pokémon' }}
       />
-    </TabOneStack.Navigator>
+    </PokemonTabStack.Navigator>
   );
 }
 
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
+const MovesTabStack = createStackNavigator<MovesTabParamList>();
 
-function TabTwoNavigator() {
+function MovesNavigator() {
   return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
+    <MovesTabStack.Navigator>
+      <MovesTabStack.Screen
+        name="MovesScreen"
+        component={MovesScreen}
         options={{ headerTitle: 'Moves' }}
       />
-    </TabTwoStack.Navigator>
+    </MovesTabStack.Navigator>
+  );
+}
+
+const ItemsTabStack = createStackNavigator<ItemsTabParamList>();
+
+function ItemsNavigator() {
+  return (
+    <ItemsTabStack.Navigator>
+      <ItemsTabStack.Screen
+        name="ItemsScreen"
+        component={ItemsScreen}
+        options={{ headerTitle: 'Moves' }}
+      />
+    </ItemsTabStack.Navigator>
   );
 }

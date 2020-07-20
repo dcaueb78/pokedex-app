@@ -17,8 +17,6 @@ export const PokemonIcon: React.FC<Props> = ({ color }) => {
     setSelectedIcon(oi);
   }, []);
 
-  console.log(color);
-
   return (
     <Image
       source={selectedIcon}
