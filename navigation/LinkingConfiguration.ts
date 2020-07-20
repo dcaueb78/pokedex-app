@@ -6,14 +6,19 @@ export default {
     screens: {
       Root: {
         screens: {
-          TabOne: {
+          Moves: {
             screens: {
-              TabOneScreen: 'one',
+              MovesScreen: 'moves',
             },
           },
-          TabTwo: {
+          Pokemon: {
             screens: {
-              TabTwoScreen: 'two',
+              PokemonScreen: 'pokemon',
+            },
+          },
+          Items: {
+            screens: {
+              ItemsScreen: 'items',
             },
           },
         },
